@@ -165,8 +165,19 @@
     border:1px solid rgba(224,162,74,.4);
     background:
       repeating-radial-gradient(circle at center, rgba(224,162,74,.16) 0, rgba(224,162,74,.16) 1px, transparent 1px, transparent 6px);
-    animation:spin 12s linear infinite;
+    animation:spin 7s linear infinite;
     z-index:2;
+    overflow:hidden;
+  }
+  .vinyl::before{
+    content:"";
+    position:absolute;inset:0;
+    border-radius:50%;
+    background:conic-gradient(from 0deg,
+      transparent 0deg, rgba(255,240,220,.55) 10deg, transparent 26deg,
+      transparent 170deg, rgba(255,240,220,.3) 182deg, transparent 200deg,
+      transparent 360deg);
+    mix-blend-mode:screen;
   }
   .vinyl::after{
     content:"";
@@ -176,6 +187,7 @@
     border-radius:50%;
     transform:translate(-50%,-50%);
     box-shadow:0 0 0 3px var(--bg-deep);
+    z-index:1;
   }
   @keyframes spin{to{transform:rotate(360deg);}}
 
@@ -262,6 +274,20 @@
   .section-label::before{
     content:"";display:block;width:22px;height:1px;background:var(--amber);
   }
+  .new-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;font-size:11px;letter-spacing:.06em;
+    color:var(--bg-deep);
+    background:var(--amber);
+    padding:4px 10px;
+    border-radius:100px;
+    animation:blink 1.4s ease-in-out infinite;
+  }
+  @keyframes blink{
+    0%,100%{opacity:1;}
+    50%{opacity:.45;}
+  }
   .about p{
     font-family:'Fraunces',serif;
     font-weight:400;
@@ -316,10 +342,10 @@
   <div class="ticker">
     <div class="ticker-track">
       <div class="ticker-group">
-        <span>100.5 STATION FM · Worldwide</span><span>Every 1st & last Saturday of the month, nearly three and a half hours of non-stop music</span><span>Thank you all for the support ❤️</span><span>Deep beats, pure vibes: Connect your soul to the rhythm.</span><span>100.5 STATION FM · Worldwide</span>
+        <span>100.5 STATION FM · Worldwide</span><span>Every 1st & last Saturday of the month, nearly three and a half hours of non-stop music</span><span>New sets dropping every other week</span><span>Deep beats, pure vibes: Connect your soul to the rhythm.</span><span>100.5 STATION FM · Worldwide</span>
       </div>
       <div class="ticker-group">
-        <span>100.5 STATION FM · Worldwide</span><span>Every 1st & last Saturday of the month, nearly three and a half hours of non-stop music</span><span>Thank you all for the support ❤️</span><span>Deep beats, pure vibes: Connect your soul to the rhythm.</span><span>100.5 STATION FM · Worldwide</span>
+        <span>100.5 STATION FM · Worldwide</span><span>Every 1st & last Saturday of the month, nearly three and a half hours of non-stop music</span><span>New sets dropping every other week</span><span>Deep beats, pure vibes: Connect your soul to the rhythm.</span><span>100.5 STATION FM · Worldwide</span>
       </div>
     </div>
   </div>
@@ -340,7 +366,7 @@
         <span>Soulful House</span>
         <span>Old School</span>
         <span>Jersey Club</span>
-        <span>Electronic</span>
+        <span>Garage Gospel</span>
       </div>
     </div>
 
@@ -363,12 +389,12 @@
   </div>
 
   <div class="section">
-    <div class="section-label">Latest mix</div>
+    <div class="section-label">Latest mix <span class="new-badge">NEW</span></div>
     <div class="mix-embed">
       <iframe width="100%" height="140" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=https%3A%2F%2Fwww.mixcloud.com%2FRMaas%2F1005-station-fm-roby-maas-in-the-mix-22th-august-2026%2F" frameborder="0"></iframe>
     </div>
     <div class="mix-caption">
-      <span>100.5 Station FM — Roby Maas in the mix, August 2026</span>
+      <span>100.5 Station FM · Worldwide — Roby Maas in the mix, August 2026</span>
       <a href="https://www.mixcloud.com/RMaas/" target="_blank" rel="noopener">More mixes on Mixcloud →</a>
     </div>
   </div>
