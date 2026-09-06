@@ -321,7 +321,24 @@
     display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
     margin-top:16px;font-size:13px;color:var(--ink-muted);
   }
-  .mix-caption a{color:var(--amber);text-decoration:none;border-bottom:1px solid rgba(224,162,74,.4);}
+  .archive-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    margin-top:16px;
+    padding:12px 22px;
+    background:var(--amber);
+    color:var(--bg-deep);
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    text-decoration:none;
+    border-radius:6px;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 8px 20px -8px rgba(224,162,74,.5);
+  }
+  .archive-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 12px 26px -8px rgba(224,162,74,.65);
+  }
 
   /* ---- footer ---- */
   footer{
@@ -403,12 +420,12 @@
     <div class="mix-col">
       <div class="section-label">Latest mix <span class="new-badge">NEW</span></div>
       <div class="mix-embed">
-        <iframe width="100%" height="140" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=https%3A%2F%2Fwww.mixcloud.com%2FRMaas%2F1005-station-fm-roby-maas-in-the-mix-22th-august-2026%2F" frameborder="0"></iframe>
+        <iframe id="mix-iframe" width="100%" height="140" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=https%3A%2F%2Fwww.mixcloud.com%2FRMaas%2F1005-station-fm-roby-maas-in-the-mix-22th-august-2026%2F" frameborder="0"></iframe>
       </div>
       <div class="mix-caption">
-        <span>100.5 Station FM · Worldwide Radio Show — Roby Maas in the mix, August 2026</span>
-        <a href="https://www.mixcloud.com/RMaas/" target="_blank" rel="noopener">More mixes on Mixcloud →</a>
+        <span id="mix-caption-text">100.5 Station FM · Worldwide Radio Show — Roby Maas in the mix, August 2026</span>
       </div>
+      <a href="https://www.mixcloud.com/RMaas/" target="_blank" rel="noopener" class="archive-btn">Explore all mixes on Mixcloud →</a>
     </div>
   </div>
 
@@ -419,5 +436,27 @@
 
 </div>
 
+<script>
+(function(){
+  fetch('https://api.mixcloud.com/RMaas/cloudcasts/?limit=1')
+    .then(function(res){ return res.json(); })
+    .then(function(json){
+      var latest = json && json.data && json.data[0];
+      if(!latest) return;
+
+      var iframe = document.getElementById('mix-iframe');
+      var feedUrl = encodeURIComponent(latest.url);
+      iframe.src = 'https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=' + feedUrl;
+
+      var date = new Date(latest.created_time);
+      var monthYear = date.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+      var caption = document.getElementById('mix-caption-text');
+      caption.textContent = '100.5 Station FM · Worldwide Radio Show — Roby Maas in the mix, ' + monthYear;
+    })
+    .catch(function(err){
+      console.log('Could not auto-load latest mix, showing default:', err);
+    });
+})();
+</script>
 </body>
 </html>
