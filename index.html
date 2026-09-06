@@ -423,7 +423,7 @@
         <iframe id="mix-iframe" width="100%" height="140" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=https%3A%2F%2Fwww.mixcloud.com%2FRMaas%2F1005-station-fm-roby-maas-in-the-mix-22th-august-2026%2F" frameborder="0"></iframe>
       </div>
       <div class="mix-caption">
-        <span id="mix-caption-text">100.5 Station FM · Worldwide Radio Show — Roby Maas in the mix, August 2026</span>
+        <span id="mix-caption-text">100.5 Station FM · Worldwide Radio Show — Roby Maas in the mix, August 22, 2026</span>
       </div>
       <a href="https://www.mixcloud.com/RMaas/" target="_blank" rel="noopener" class="archive-btn">Explore all mixes on Mixcloud →</a>
     </div>
@@ -449,9 +449,9 @@
       iframe.src = 'https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=' + feedUrl;
 
       var date = new Date(latest.created_time);
-      var monthYear = date.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+      var fullDate = date.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
       var caption = document.getElementById('mix-caption-text');
-      caption.textContent = '100.5 Station FM · Worldwide Radio Show — Roby Maas in the mix, ' + monthYear;
+      caption.textContent = '100.5 Station FM · Worldwide Radio Show — Roby Maas in the mix, ' + fullDate;
     })
     .catch(function(err){
       console.log('Could not auto-load latest mix, showing default:', err);
