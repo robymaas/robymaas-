@@ -288,15 +288,26 @@
     0%,100%{opacity:1;}
     50%{opacity:.45;}
   }
+  .split-section{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
   .about p{
     font-family:'Fraunces',serif;
     font-weight:400;
-    font-size:20px;
-    line-height:1.65;
+    font-size:18px;
+    line-height:1.6;
     color:var(--ink);
-    max-width:680px;
   }
-  .about p + p{margin-top:18px;}
+  .about p + p{margin-top:16px;}
+  .mix-col{position:sticky;top:32px;}
+
+  @media (max-width:860px){
+    .split-section{grid-template-columns:1fr;gap:48px;}
+    .mix-col{position:static;}
+  }
 
   /* ---- mix ---- */
   .mix-embed{
@@ -354,13 +365,13 @@
     <div>
       <div class="freq"><span class="eq"><span></span><span></span><span></span><span></span></span> 100.5 FM</div>
       <h1>ROBY MAAS</h1>
-      <div class="show-name">In The Mix</div>
+      <div class="show-name">Radio Show – In The Mix</div>
 
       <div class="time-block">
         <span class="time">9:00 PM – 12:30 AM</span>
         <span class="tz">Eastern Time</span>
       </div>
-      <div class="schedule">1st &amp; last Saturday of the month</div>
+      <div class="schedule">1st &amp; Last Saturday of Each Month</div>
 
       <div class="genres">
         <span>Soulful House</span>
@@ -380,27 +391,29 @@
     <p>Long blends, deep grooves, <span>no rush</span> — soulful house the way it's meant to be played.</p>
   </div>
 
-  <div class="section about">
-    <div class="section-label">About the show</div>
-    <p>Roby Maas has been spinning records and captivating audiences for over 40 years. More than just a DJ, he is a true musical storyteller, using his sets to transport listeners through time and emotion.</p>
-    <p>His eclectic vinyl collection is a treasure trove of soulful melodies — from the smooth sounds of Motown to the funky grooves of James Brown, creating a sound that makes every heart move to the rhythm.</p>
-    <p>His mixing is built on long, seamless transitions — blending track into track so the groove never breaks, guided by feel more than by the count. It's a soulful garage-house style, phrasing records together to keep the dancefloor moving through the whole set.</p>
-    <p>Even after four decades in the music scene, Roby's passion and dedication remain unwavering. His love for music and his ability to entertain are timeless. Today, Roby Maas continues to captivate audiences on the radio, delivering electrifying sounds that leave listeners wanting more.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-label">Latest mix <span class="new-badge">NEW</span></div>
-    <div class="mix-embed">
-      <iframe width="100%" height="140" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=https%3A%2F%2Fwww.mixcloud.com%2FRMaas%2F1005-station-fm-roby-maas-in-the-mix-22th-august-2026%2F" frameborder="0"></iframe>
+  <div class="section split-section">
+    <div class="about">
+      <div class="section-label">About the show</div>
+      <p>Roby Maas has been spinning records and captivating audiences for over 40 years. More than just a DJ, he is a true musical storyteller, using his sets to transport listeners through time and emotion.</p>
+      <p>His eclectic vinyl collection is a treasure trove of soulful melodies — from the smooth sounds of Motown to the funky grooves of James Brown, creating a sound that makes every heart move to the rhythm.</p>
+      <p>His mixing is built on long, seamless transitions — blending track into track so the groove never breaks, guided by feel more than by the count. It's a soulful garage-house style, phrasing records together to keep the dancefloor moving through the whole set.</p>
+      <p>Even after four decades in the music scene, Roby's passion and dedication remain unwavering. His love for music and his ability to entertain are timeless. Today, Roby Maas continues to captivate audiences on the radio, delivering electrifying sounds that leave listeners wanting more.</p>
     </div>
-    <div class="mix-caption">
-      <span>100.5 Station FM · Worldwide — Roby Maas in the mix, August 2026</span>
-      <a href="https://www.mixcloud.com/RMaas/" target="_blank" rel="noopener">More mixes on Mixcloud →</a>
+
+    <div class="mix-col">
+      <div class="section-label">Latest mix <span class="new-badge">NEW</span></div>
+      <div class="mix-embed">
+        <iframe width="100%" height="140" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=https%3A%2F%2Fwww.mixcloud.com%2FRMaas%2F1005-station-fm-roby-maas-in-the-mix-22th-august-2026%2F" frameborder="0"></iframe>
+      </div>
+      <div class="mix-caption">
+        <span>100.5 Station FM · Worldwide Radio Show — Roby Maas in the mix, August 2026</span>
+        <a href="https://www.mixcloud.com/RMaas/" target="_blank" rel="noopener">More mixes on Mixcloud →</a>
+      </div>
     </div>
   </div>
 
   <footer>
-    <span>Roby Maas · In The Mix</span>
+    <span>Roby Maas · Radio Show – In The Mix</span>
     <a href="https://www.mixcloud.com/RMaas/" target="_blank" rel="noopener">Follow on Mixcloud</a>
   </footer>
 
